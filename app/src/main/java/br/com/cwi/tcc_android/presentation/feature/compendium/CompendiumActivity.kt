@@ -1,0 +1,24 @@
+package br.com.cwi.tcc_android.presentation.feature.compendium
+
+import android.os.Bundle
+import br.com.cwi.tcc_android.R
+import br.com.cwi.tcc_android.databinding.ActivityCompendiumBinding
+import br.com.cwi.tcc_android.presentation.base.BaseBottomNavigation
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+class CompendiumActivity : BaseBottomNavigation() {
+
+    private lateinit var binding: ActivityCompendiumBinding
+
+    override val currentTab: Int = R.id.compendium_menu
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityCompendiumBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        //setUpCompendiumActions()
+    }
+
+    override fun getBottomNavigation(): BottomNavigationView = binding.contentBottomNavigation.root
+}

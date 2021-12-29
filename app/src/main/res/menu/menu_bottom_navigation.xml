@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/compendium_menu"
+        android:enabled="true"
+        android:icon="@drawable/ic_compendium"
+        android:title="@string/txt_compendium"/>
+    <item
+        android:id="@+id/characters_menu"
+        android:enabled="true"
+        android:icon="@drawable/ic_characters"
+        android:title="@string/txt_characters"/>
+    <item
+        android:id="@+id/dices_menu"
+        android:enabled="true"
+        android:icon="@drawable/ic_dices"
+        android:title="@string/txt_dices"/>
+</menu>

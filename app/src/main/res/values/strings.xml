@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">TCC-Android</string>
+    <string name="app_name">DnD</string>
+    <string name="txt_compendium">Compendium</string>
+    <string name="txt_characters">Characters</string>
+    <string name="txt_dices">Dices</string>
+    <string name="txt_spells">Spells</string>
+    <string name="txt_equipment">Equipment</string>
+    <string name="txt_monsters">Monsters</string>
+    <string name="txt_races">Races</string>
+    <string name="txt_classes">Classes</string>
 </resources>
