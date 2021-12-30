@@ -91,4 +91,6 @@ dependencies {
 
     //Coroutines Test
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version")
+
+    //implementation 'com.github.ProjectMapK:KMapper:0.33'
 }

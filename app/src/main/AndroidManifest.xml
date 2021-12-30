@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TCCAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".presentation.feature.compendium.classes.ClassesHostActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.feature.characters.CharactersActivity"
             android:exported="false"
             android:label="@string/txt_characters"
@@ -31,6 +34,7 @@
             android:theme="@style/Theme.TCCAndroid.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
