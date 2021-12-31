@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.feature.compendium.classes.ClassFragment">
+    tools:context=".presentation.feature.compendium.class.ClassFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_caps"

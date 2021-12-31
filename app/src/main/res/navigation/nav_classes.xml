@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/compendium_fragment"
-        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.classes.ClassFragment"
+        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.class.ClassFragment"
         android:label="fragment_class"
         tools:layout="@layout/fragment_class" >
     </fragment>

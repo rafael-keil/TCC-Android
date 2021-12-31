@@ -15,8 +15,10 @@
         android:theme="@style/Theme.TCCAndroid"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".presentation.feature.compendium.classes.ClassesHostActivity"
-            android:exported="false" />
+            android:name=".presentation.feature.compendium.class.ClassesHostActivity"
+            android:exported="false"
+            android:label="@string/txt_classes"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.feature.characters.CharactersActivity"
             android:exported="false"

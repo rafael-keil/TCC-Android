@@ -8,4 +8,8 @@
     <string name="txt_monsters">Monsters</string>
     <string name="txt_races">Races</string>
     <string name="txt_classes">Classes</string>
+    <string name="txt_error_title">Algo deu errado</string>
+    <string name="txt_error_subtitle">tente novamente mais tarde</string>
+    <string name="txt_hp_dice">\"HP Dice: \"</string>
+    <string name="txt_subclasses">\"Subclasses: \"</string>
 </resources>
