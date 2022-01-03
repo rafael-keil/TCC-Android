@@ -9,11 +9,12 @@ import br.com.cwi.tcc_android.presentation.feature.compendium.viewholder.ClassVi
 
 class ClassAdapter(
     private val list: List<Class>,
+    private val onClassClick: (Class) -> Unit
 ) : Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = inflateView(R.layout.item_class, parent)
-        return ClassViewHolder(view)
+        return ClassViewHolder(view, onClassClick)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {

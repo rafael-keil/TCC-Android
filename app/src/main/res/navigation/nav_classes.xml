@@ -9,8 +9,16 @@
         android:id="@+id/classesFragment"
         android:name="br.com.cwi.tcc_android.presentation.feature.compendium.class.ClassFragment"
         android:label="fragment_class"
-        tools:layout="@layout/fragment_class" >
+        tools:layout="@layout/fragment_class">
+        <action
+            android:id="@+id/action_classesFragment_to_classDetailFragment"
+            app:destination="@id/classDetailFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/classDetailFragment"
+        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.class.ClassDetailFragment"
+        android:label="fragment_coffee_detail"
+        tools:layout="@layout/fragment_class_detail" />
 
 </navigation>

@@ -10,6 +10,11 @@
     <string name="txt_classes">Classes</string>
     <string name="txt_error_title">Algo deu errado</string>
     <string name="txt_error_subtitle">tente novamente mais tarde</string>
-    <string name="txt_hp_dice">HP Dice: %1$s</string>
+    <string name="txt_hp_dice">HP Dice: D%1$s</string>
     <string name="txt_subclasses">Subclasses: %1$s</string>
+    <string name="txt_proficiency_choices">Proficiency Choices - %1$s of the following list:</string>
+    <string name="txt_proficiencies">Proficiencies:</string>
+    <string name="txt_saving_throws">Saving Throws:</string>
+    <string name="txt_starting_equipment">Starting Equipment:</string>
+    <string name="txt_detail_subclasses">Subclasses:</string>
 </resources>

@@ -2,8 +2,6 @@
 <resources>
     <color name="base_red">#E01F1D</color>
     <color name="secondary_red">#6A0709</color>
-
-    <!--mine-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_darker">#444</color>

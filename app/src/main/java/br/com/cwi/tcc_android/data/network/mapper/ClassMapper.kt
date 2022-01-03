@@ -10,15 +10,14 @@ class ClassMapper : DomainMapper<ClassResponse, Class> {
 
 
     override fun toDomain(from: ClassResponse) = Class(
-        index = from.index,
+        id = from.index,
         name = from.name,
-        hitDie = from.hitDie,
+        dice = from.hitDie,
         proficiencyChoices = baseChooseMapper.toDomain(from.proficiencyChoices),
         proficiencies = baseListItemMapper.toDomain(from.proficiencies),
         savingThrows = baseListItemMapper.toDomain(from.savingThrows),
         startingEquipment = StartingEquipmentMapper().toDomain(from.startingEquipment),
         startingEquipmentOptions = baseChooseMapper.toDomain(from.startingEquipmentOptions),
-        multiClassing = MultiClassingMapper().toDomain(from.multiClassing),
         subClasses = baseListItemMapper.toDomain(from.subclasses),
     )
 
