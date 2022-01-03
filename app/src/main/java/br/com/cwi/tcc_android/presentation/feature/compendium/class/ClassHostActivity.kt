@@ -35,6 +35,17 @@ class ClassesHostActivity : BaseBottomNavigation() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         setupViewModel()
+        setupNavController()
+    }
+
+    private fun setupNavController() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val title = when (destination.id) {
+                R.id.classesFragment -> getString(R.string.txt_classes)
+                else -> "Detalhes"
+            }
+            supportActionBar?.title = title
+        }
     }
 
     private fun setupViewModel() {

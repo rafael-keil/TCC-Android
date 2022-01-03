@@ -15,9 +15,11 @@ class ClassViewHolder(
 
     fun bind(item: Class) {
         tvName.text = item.name
-        tvDice.text = R.string.txt_hp_dice.toString() + item.hitDie.toString()
+        tvDice.text = itemView.context.getString(R.string.txt_hp_dice, item.hitDie.toString())
         tvSubclasses.text =
-            R.string.txt_subclasses.toString() + item.subClasses.map { item -> item.name }
-                .joinToString { ", " }
+            itemView.context.getString(
+                R.string.txt_subclasses,
+                item.subClasses.joinToString(", ") { it.name }
+            )
     }
 }

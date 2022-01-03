@@ -21,11 +21,11 @@ abstract class BaseViewModel : ViewModel() {
             try {
                 block()
                 _error.postValue(false)
+                _loading.postValue(false)
             } catch (ex: Exception) {
+                _loading.postValue(false)
                 _error.postValue(true)
             }
-
-            _loading.postValue(false)
         }
     }
 }

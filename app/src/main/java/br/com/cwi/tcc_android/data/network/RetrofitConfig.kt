@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object RetrofitConfig {
 
     val service: DndApi = Retrofit.Builder()
-        .baseUrl("http://localhost:3000")
+        .baseUrl("http://192.168.1.106:3000/")
         .addConverterFactory(
             MoshiConverterFactory.create(
                 Moshi.Builder()

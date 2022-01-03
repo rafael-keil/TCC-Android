@@ -10,6 +10,6 @@
     <string name="txt_classes">Classes</string>
     <string name="txt_error_title">Algo deu errado</string>
     <string name="txt_error_subtitle">tente novamente mais tarde</string>
-    <string name="txt_hp_dice">\"HP Dice: \"</string>
-    <string name="txt_subclasses">\"Subclasses: \"</string>
+    <string name="txt_hp_dice">HP Dice: %1$s</string>
+    <string name="txt_subclasses">Subclasses: %1$s</string>
 </resources>

@@ -15,7 +15,9 @@ class ClassViewModel(
 
     fun fetchClasses() {
         launch {
+
             val classesList = dndRepository.getClasses()
+
             _classes.postValue(classesList)
         }
     }

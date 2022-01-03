@@ -3299,7 +3299,240 @@
       "spells": "/api/classes/warlock/spells",
       "url": "/api/classes/warlock"
     },
-    { "index": "wizard", "name": "Wizard", "url": "/api/classes/wizard" }
+    {
+      "index": "wizard",
+      "name": "Wizard",
+      "hit_die": 6,
+      "proficiency_choices": [
+        {
+          "choose": 2,
+          "type": "proficiencies",
+          "from": [
+            {
+              "index": "skill-arcana",
+              "name": "Skill: Arcana",
+              "url": "/api/proficiencies/skill-arcana"
+            },
+            {
+              "index": "skill-history",
+              "name": "Skill: History",
+              "url": "/api/proficiencies/skill-history"
+            },
+            {
+              "index": "skill-insight",
+              "name": "Skill: Insight",
+              "url": "/api/proficiencies/skill-insight"
+            },
+            {
+              "index": "skill-investigation",
+              "name": "Skill: Investigation",
+              "url": "/api/proficiencies/skill-investigation"
+            },
+            {
+              "index": "skill-medicine",
+              "name": "Skill: Medicine",
+              "url": "/api/proficiencies/skill-medicine"
+            },
+            {
+              "index": "skill-religion",
+              "name": "Skill: Religion",
+              "url": "/api/proficiencies/skill-religion"
+            }
+          ]
+        }
+      ],
+      "proficiencies": [
+        {
+          "index": "daggers",
+          "name": "Daggers",
+          "url": "/api/proficiencies/daggers"
+        },
+        {
+          "index": "quarterstaffs",
+          "name": "Quarterstaffs",
+          "url": "/api/proficiencies/quarterstaffs"
+        },
+        {
+          "index": "darts",
+          "name": "Darts",
+          "url": "/api/proficiencies/darts"
+        },
+        {
+          "index": "slings",
+          "name": "Slings",
+          "url": "/api/proficiencies/slings"
+        }
+      ],
+      "saving_throws": [
+        {
+          "index": "int",
+          "name": "INT",
+          "url": "/api/ability-scores/int"
+        },
+        {
+          "index": "wis",
+          "name": "WIS",
+          "url": "/api/ability-scores/wis"
+        }
+      ],
+      "starting_equipment": [
+        {
+          "equipment": {
+            "index": "spellbook",
+            "name": "Spellbook",
+            "url": "/api/equipment/spellbook"
+          },
+          "quantity": 1
+        }
+      ],
+      "starting_equipment_options": [
+        {
+          "choose": 1,
+          "type": "equipment",
+          "from": [
+            {
+              "equipment": {
+                "index": "dagger",
+                "name": "Dagger",
+                "url": "/api/equipment/dagger"
+              },
+              "quantity": 1
+            },
+            {
+              "equipment": {
+                "index": "quarterstaff",
+                "name": "Quarterstaff",
+                "url": "/api/equipment/quarterstaff"
+              },
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "choose": 1,
+          "type": "equipment",
+          "from": [
+            {
+              "equipment": {
+                "index": "component-pouch",
+                "name": "Component pouch",
+                "url": "/api/equipment/component-pouch"
+              },
+              "quantity": 1
+            },
+            {
+              "equipment_option": {
+                "choose": 1,
+                "type": "equipment",
+                "from": {
+                  "equipment_category": {
+                    "index": "arcane-foci",
+                    "name": "Arcane Foci",
+                    "url": "/api/equipment-categories/arcane-foci"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "choose": 1,
+          "type": "equipment",
+          "from": [
+            {
+              "equipment": {
+                "index": "scholars-pack",
+                "name": "Scholar's Pack",
+                "url": "/api/equipment/scholars-pack"
+              },
+              "quantity": 1
+            },
+            {
+              "equipment": {
+                "index": "dungeoneers-pack",
+                "name": "Dungeoneer's Pack",
+                "url": "/api/equipment/dungeoneers-pack"
+              },
+              "quantity": 1
+            }
+          ]
+        }
+      ],
+      "class_levels": "/api/classes/wizard/levels",
+      "multi_classing": {
+        "prerequisites": [
+          {
+            "ability_score": {
+              "index": "int",
+              "name": "INT",
+              "url": "/api/ability-scores/int"
+            },
+            "minimum_score": 13
+          }
+        ],
+        "proficiencies": []
+      },
+      "subclasses": [
+        {
+          "index": "evocation",
+          "name": "Evocation",
+          "url": "/api/subclasses/evocation"
+        }
+      ],
+      "spellcasting": {
+        "level": 1,
+        "spellcasting_ability": {
+          "index": "int",
+          "name": "INT",
+          "url": "/api/ability-scores/int"
+        },
+        "info": [
+          {
+            "desc": [
+              "At 1st level, you know three cantrips of your choice from the wizard spell list. You learn additional wizard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Wizard table."
+            ],
+            "name": "Cantrips"
+          },
+          {
+            "desc": [
+              "At 1st level, you have a spellbook containing six 1st- level wizard spells of your choice. Your spellbook is the repository of the wizard spells you know, except your cantrips, which are fixed in your mind."
+            ],
+            "name": "Spellbook"
+          },
+          {
+            "desc": [
+              "The Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
+              "You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.",
+              "For example, if you're a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell magic missile, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.",
+              "You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list."
+            ],
+            "name": "Preparing and Casting Spells"
+          },
+          {
+            "desc": [
+              "Intelligence is your spellcasting ability for your wizard spells, since you learn your spells through dedicated study and memorization. You use your Intelligence whenever a spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for a wizard spell you cast and when making an attack roll with one.",
+              "Spell save DC = 8 + your proficiency bonus + your Intelligence modifier.",
+              "Spell attack modifier = your proficiency bonus + your Intelligence modifier."
+            ],
+            "name": "Spellcasting Ability"
+          },
+          {
+            "desc": [
+              "You can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don't need to have the spell prepared."
+            ],
+            "name": "Ritual Casting"
+          },
+          {
+            "desc": [
+              "You can use an arcane focus as a spellcasting focus for your wizard spells."
+            ],
+            "name": "Spellcasting Focus"
+          }
+        ]
+      },
+      "spells": "/api/classes/wizard/spells",
+      "url": "/api/classes/wizard"
+    }
   ],
   "equipment": [
     {
@@ -8656,6 +8889,24 @@
     {
       "index": "yew-wand",
       "name": "Yew wand",
+      "equipment_category": {
+        "index": "adventuring-gear",
+        "name": "Adventuring Gear",
+        "url": "/api/equipment-categories/adventuring-gear"
+      },
+      "gear_category": {
+        "index": "druidic-foci",
+        "name": "Druidic Foci",
+        "url": "/api/equipment-categories/druidic-foci"
+      },
+      "cost": {
+        "quantity": 10,
+        "unit": "gp"
+      },
+      "weight": 1,
+      "desc": [
+        "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid can use such an object as a spellcasting focus."
+      ],
       "url": "/api/equipment/yew-wand"
     }
   ],
@@ -46805,7 +47056,77 @@
       ],
       "url": "/api/monsters/young-white-dragon"
     },
-    { "index": "zombie", "name": "Zombie", "url": "/api/monsters/zombie" }
+    {
+      "index": "zombie",
+      "name": "Zombie",
+      "size": "Medium",
+      "type": "undead",
+      "subtype": null,
+      "alignment": "neutral evil",
+      "armor_class": 8,
+      "hit_points": 22,
+      "hit_dice": "3d8",
+      "speed": {
+        "walk": "20 ft."
+      },
+      "strength": 13,
+      "dexterity": 6,
+      "constitution": 16,
+      "intelligence": 3,
+      "wisdom": 6,
+      "charisma": 5,
+      "proficiencies": [
+        {
+          "proficiency": {
+            "index": "saving-throw-wis",
+            "name": "Saving Throw: WIS",
+            "url": "/api/proficiencies/saving-throw-wis"
+          },
+          "value": 0
+        }
+      ],
+      "damage_vulnerabilities": [],
+      "damage_resistances": [],
+      "damage_immunities": ["poison"],
+      "condition_immunities": [
+        {
+          "index": "poisoned",
+          "name": "Poisoned",
+          "url": "/api/conditions/poisoned"
+        }
+      ],
+      "senses": {
+        "darkvision": "60 ft.",
+        "passive_perception": 8
+      },
+      "languages": "understands all languages it spoke in life but can't speak",
+      "challenge_rating": 0.25,
+      "xp": 50,
+      "special_abilities": [
+        {
+          "name": "Undead Fortitude",
+          "desc": "If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5+the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Slam",
+          "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage.",
+          "attack_bonus": 3,
+          "damage": [
+            {
+              "damage_type": {
+                "index": "bludgeoning",
+                "name": "Bludgeoning",
+                "url": "/api/damage-types/bludgeoning"
+              },
+              "damage_dice": "1d6+1"
+            }
+          ]
+        }
+      ],
+      "url": "/api/monsters/zombie"
+    }
   ],
   "races": [
     {
@@ -47569,7 +47890,66 @@
       "subraces": [],
       "url": "/api/races/human"
     },
-    { "index": "tiefling", "name": "Tiefling", "url": "/api/races/tiefling" }
+    {
+      "index": "tiefling",
+      "name": "Tiefling",
+      "speed": 30,
+      "ability_bonuses": [
+        {
+          "ability_score": {
+            "index": "int",
+            "name": "INT",
+            "url": "/api/ability-scores/int"
+          },
+          "bonus": 1
+        },
+        {
+          "ability_score": {
+            "index": "cha",
+            "name": "CHA",
+            "url": "/api/ability-scores/cha"
+          },
+          "bonus": 2
+        }
+      ],
+      "alignment": "Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment.",
+      "age": "Tieflings mature at the same rate as humans but live a few years longer.",
+      "size": "Medium",
+      "size_description": "Tieflings are about the same size and build as humans. Your size is Medium.",
+      "starting_proficiencies": [],
+      "languages": [
+        {
+          "index": "common",
+          "name": "Common",
+          "url": "/api/languages/common"
+        },
+        {
+          "index": "infernal",
+          "name": "Infernal",
+          "url": "/api/languages/infernal"
+        }
+      ],
+      "language_desc": "You can speak, read, and write Common and Infernal.",
+      "traits": [
+        {
+          "index": "darkvision",
+          "name": "Darkvision",
+          "url": "/api/traits/darkvision"
+        },
+        {
+          "index": "hellish-resistance",
+          "name": "Hellish Resistance",
+          "url": "/api/traits/hellish-resistance"
+        },
+        {
+          "index": "infernal-legacy",
+          "name": "Infernal Legacy",
+          "url": "/api/traits/infernal-legacy"
+        }
+      ],
+      "subraces": [],
+      "url": "/api/races/tiefling"
+    }
   ],
   "spells": [
     {
@@ -59833,6 +60213,55 @@
     {
       "index": "zone-of-truth",
       "name": "Zone of Truth",
+      "desc": [
+        "You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw.",
+        "An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such a creature can remain evasive in its answers as long as it remains within the boundaries of the truth."
+      ],
+      "range": "60 feet",
+      "components": ["V", "S"],
+      "ritual": false,
+      "duration": "10 minutes",
+      "concentration": false,
+      "casting_time": "1 action",
+      "level": 2,
+      "area_of_effect": {
+        "type": "sphere",
+        "size": 15
+      },
+      "school": {
+        "index": "enchantment",
+        "name": "Enchantment",
+        "url": "/api/magic-schools/enchantment"
+      },
+      "classes": [
+        {
+          "index": "bard",
+          "name": "Bard",
+          "url": "/api/classes/bard"
+        },
+        {
+          "index": "cleric",
+          "name": "Cleric",
+          "url": "/api/classes/cleric"
+        },
+        {
+          "index": "paladin",
+          "name": "Paladin",
+          "url": "/api/classes/paladin"
+        }
+      ],
+      "subclasses": [
+        {
+          "index": "lore",
+          "name": "Lore",
+          "url": "/api/subclasses/lore"
+        },
+        {
+          "index": "devotion",
+          "name": "Devotion",
+          "url": "/api/subclasses/devotion"
+        }
+      ],
       "url": "/api/spells/zone-of-truth"
     }
   ]
