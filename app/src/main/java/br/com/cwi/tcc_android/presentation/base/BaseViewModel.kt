@@ -25,6 +25,7 @@ abstract class BaseViewModel : ViewModel() {
             } catch (ex: Exception) {
                 _loading.postValue(false)
                 _error.postValue(true)
+                ex.printStackTrace()
             }
         }
     }

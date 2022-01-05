@@ -6,7 +6,7 @@ import br.com.cwi.tcc_android.domain.entity.BaseListItem
 class BaseListItemMapper : DomainMapper<BaseListItemResponse, BaseListItem> {
 
     override fun toDomain(from: BaseListItemResponse) = BaseListItem(
-        id = from.index,
+        id = from.id,
         name = from.name,
     )
 

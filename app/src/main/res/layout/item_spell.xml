@@ -16,10 +16,10 @@
         android:textColor="@color/base_red"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Barbarian" />
+        tools:text="Acid Arrow" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_subclasses"
+        android:id="@+id/tv_school"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="14sp"
@@ -27,10 +27,10 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        tools:text="Subclasses: Berserk" />
+        tools:text="Conjuration" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_dice"
+        android:id="@+id/tv_level"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="HP Dice: D12" />
+        tools:text="Cantrip" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,23 +1,21 @@
-package br.com.cwi.tcc_android.presentation.feature.compendium.`class`
+package br.com.cwi.tcc_android.presentation.feature.compendium.spells
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import br.com.cwi.tcc_android.domain.entity.Class
+import br.com.cwi.tcc_android.domain.entity.Spell
 import br.com.cwi.tcc_android.domain.repository.DndRepository
 import br.com.cwi.tcc_android.presentation.base.BaseViewModel
 
-class ClassViewModel(
+class SpellViewModel(
     private val dndRepository: DndRepository,
 ) : BaseViewModel() {
 
-    private val _classes = MutableLiveData<List<Class>>()
-    val classes: LiveData<List<Class>> = _classes
+    private val _classes = MutableLiveData<List<Spell>>()
+    val classes: LiveData<List<Spell>> = _classes
 
-    fun fetchClasses() {
+    fun fetchSpells() {
         launch {
-
-            val classesList = dndRepository.getClasses()
-
+            val classesList = dndRepository.getSpells()
             _classes.postValue(classesList)
         }
     }

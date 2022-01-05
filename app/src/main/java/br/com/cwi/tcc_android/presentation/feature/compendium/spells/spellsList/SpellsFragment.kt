@@ -1,4 +1,4 @@
-package br.com.cwi.tcc_android.presentation.feature.compendium.`class`
+package br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellsList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,21 +9,22 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.cwi.tcc_android.R
-import br.com.cwi.tcc_android.databinding.FragmentClassBinding
-import br.com.cwi.tcc_android.domain.entity.Class
+import br.com.cwi.tcc_android.databinding.FragmentSpellsBinding
+import br.com.cwi.tcc_android.domain.entity.Spell
+import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class ClassFragment : Fragment() {
+class SpellsFragment : Fragment() {
 
-    private lateinit var binding: FragmentClassBinding
+    private lateinit var binding: FragmentSpellsBinding
 
-    private val viewModel: ClassViewModel by sharedViewModel()
+    private val viewModel: SpellViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentClassBinding.inflate(layoutInflater)
+        binding = FragmentSpellsBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -35,27 +36,27 @@ class ClassFragment : Fragment() {
 
     private fun setupViewModel() {
         viewModel.classes.observe(viewLifecycleOwner) { list ->
-            setUpCoffeeRecyclerView(list)
+            setUpClassesRecyclerView(list)
         }
-        viewModel.fetchClasses()
+        viewModel.fetchSpells()
     }
 
-    private fun setUpCoffeeRecyclerView(list: List<Class>) {
-        binding.rvCaps.apply {
+    private fun setUpClassesRecyclerView(list: List<Spell>) {
+        binding.rvClasses.apply {
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             )
-            adapter = ClassAdapter(list, onClassClick = {
-                navigateToClassDetail(it.name)
+            adapter = SpellsAdapter(list, onClassClick = {
+                navigateToClassDetail(it.id)
             })
         }
     }
 
-    private fun navigateToClassDetail(name: String) {
+    private fun navigateToClassDetail(id: String) {
         findNavController().navigate(
-            R.id.classDetailFragment,
+            R.id.spellDetailFragment,
             bundleOf(
-                Pair("name", name)
+                Pair("id", id)
             )
         )
     }

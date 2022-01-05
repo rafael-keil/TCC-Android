@@ -2,10 +2,10 @@
 <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/vf_classes"
+    android:id="@+id/vf_spells"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.feature.compendium.class.ClassesHostActivity">
+    tools:context=".presentation.feature.compendium.spells.SpellHostActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/nav_classes" />
+            app:navGraph="@navigation/nav_spells" />
 
         <include
             android:id="@+id/content_bottom_navigation"

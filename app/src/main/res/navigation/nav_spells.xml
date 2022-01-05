@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_spells"
+    app:startDestination="@id/spellsFragment">
+
+    <fragment
+        android:id="@+id/spellsFragment"
+        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellsList.SpellsFragment"
+        android:label="fragment_spell"
+        tools:layout="@layout/fragment_spells">
+        <action
+            android:id="@+id/action_spellsFragment_to_spellDetailFragment"
+            app:destination="@id/spellDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/spellDetailFragment"
+        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellDetail.SpellDetailFragment"
+        android:label="fragment_spell_detail"
+        tools:layout="@layout/fragment_spell_detail" />
+
+</navigation>

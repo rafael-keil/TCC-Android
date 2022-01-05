@@ -32,48 +32,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/base_red"
-            android:text="@string/txt_equipment"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/bt_monsters"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_spells" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_monsters"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/base_red"
-            android:text="@string/txt_monsters"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/bt_races"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_equipment" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_races"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/base_red"
-            android:text="@string/txt_races"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/bt_classes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_monsters" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_classes"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/base_red"
-            android:text="@string/txt_classes"
+            android:text="@string/txt_equipments"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_races" />
+            app:layout_constraintTop_toBottomOf="@+id/bt_spells" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

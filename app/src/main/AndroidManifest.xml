@@ -15,9 +15,9 @@
         android:theme="@style/Theme.TCCAndroid"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".presentation.feature.compendium.class.ClassesHostActivity"
+            android:name=".presentation.feature.compendium.spells.SpellHostActivity"
             android:exported="false"
-            android:label="@string/txt_classes"
+            android:label="@string/txt_spells"
             android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.feature.characters.CharactersActivity"

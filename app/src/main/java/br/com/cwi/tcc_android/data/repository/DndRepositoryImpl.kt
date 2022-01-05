@@ -1,37 +1,45 @@
 package br.com.cwi.tcc_android.data.repository
 
 import br.com.cwi.tcc_android.data.network.DndApi
-import br.com.cwi.tcc_android.data.network.mapper.ClassMapper
-import br.com.cwi.tcc_android.domain.entity.*
+import br.com.cwi.tcc_android.data.network.mapper.EquipmentMapper
+import br.com.cwi.tcc_android.data.network.mapper.SpellMapper
+import br.com.cwi.tcc_android.domain.entity.Equipment
+import br.com.cwi.tcc_android.domain.entity.Spell
 import br.com.cwi.tcc_android.domain.repository.DndRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class DndRepositoryImpl(
     private val api: DndApi,
-    private val classMapper: ClassMapper,
+    private val spellMapper: SpellMapper,
+    private val equipmentMapper: EquipmentMapper,
 ) : DndRepository {
 
-    override suspend fun getClasses(): List<Class> {
+    override suspend fun getSpells(): List<Spell> {
         return withContext(Dispatchers.IO) {
 
-            classMapper.toDomain(api.getClasses())
+            spellMapper.toDomain(api.getSpells())
         }
     }
 
-    override suspend fun getEquipment(): List<Equipment> {
-        TODO("Not yet implemented")
+    override suspend fun getSpell(id: String): Spell {
+        return withContext(Dispatchers.IO) {
+
+            spellMapper.toDomain(api.getSpell(id))
+        }
     }
 
-    override suspend fun getMonsters(): List<Monster> {
-        TODO("Not yet implemented")
+    override suspend fun getEquipments(): List<Equipment> {
+        return withContext(Dispatchers.IO) {
+
+            equipmentMapper.toDomain(api.getEquipments())
+        }
     }
 
-    override suspend fun getRaces(): List<Race> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getEquipment(id: String): Equipment {
+        return withContext(Dispatchers.IO) {
 
-    override suspend fun getSpells(): List<Spell> {
-        TODO("Not yet implemented")
+            equipmentMapper.toDomain(api.getEquipment(id))
+        }
     }
 }
