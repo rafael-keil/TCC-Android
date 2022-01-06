@@ -7,4 +7,12 @@
     <string name="txt_equipments">Equipments</string>
     <string name="txt_error_title">Algo deu errado</string>
     <string name="txt_error_subtitle">tente novamente mais tarde</string>
+    <string name="txt_detail_level">Level:</string>
+    <string name="txt_detail_school">School:</string>
+    <string name="txt_detail_casting_time">Casting Time:</string>
+    <string name="txt_detail_range">Range:</string>
+    <string name="txt_detail_components">Components:</string>
+    <string name="txt_detail_duration">Duration:</string>
+    <string name="txt_detail_classes">Classes:</string>
+    <string name="txt_detail_higher_level">Higher Level:</string>
 </resources>
