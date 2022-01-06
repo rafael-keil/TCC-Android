@@ -9,13 +9,16 @@ import br.com.cwi.tcc_android.databinding.FragmentSpellDetailBinding
 import br.com.cwi.tcc_android.domain.entity.Spell
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
+private const val TAB = "      "
+private const val BREAK_LINE = "\n"
+private const val SEPARATOR = ", "
+
 class SpellDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentSpellDetailBinding
 
     private val viewModel: SpellDetailViewModel by sharedViewModel()
 
-    private lateinit var adapter: SpellDetailAdapters
 
     private val itemId by lazy {
         arguments?.getString("id")
@@ -26,7 +29,6 @@ class SpellDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSpellDetailBinding.inflate(layoutInflater)
-        adapter = SpellDetailAdapters(context)
         return binding.root
     }
 
@@ -37,12 +39,12 @@ class SpellDetailFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        viewModel.classDetail.observe(viewLifecycleOwner) { item ->
+        viewModel.spellDetail.observe(viewLifecycleOwner) { item ->
             setupDetailsInfo(item)
         }
 
         itemId?.run {
-            viewModel.fetchClasses(this)
+            viewModel.fetchSpell(this)
         }
     }
 
@@ -53,15 +55,16 @@ class SpellDetailFragment : Fragment() {
             binding.tvSchoolContent.text = school.name
             binding.tvCastingTimeContent.text = castingTime
             binding.tvRangeContent.text = range
-            binding.tvComponentsContent.text = components.joinToString(separator = ", ")
+            binding.tvComponentsContent.text = components.joinToString(separator = SEPARATOR)
             binding.tvDurationContent.text = duration
-            binding.tvClassesContent.text = classes.joinToString(separator = ", ") { it.name }
-            binding.tvDesc.text = desc.joinToString(separator = "\n      ", prefix = "      ")
+            binding.tvClassesContent.text = classes.joinToString(separator = SEPARATOR) { it.name }
+            binding.tvDesc.text = desc.joinToString(separator = BREAK_LINE + TAB, prefix = TAB)
 
             higherLevel?.let {
-                binding.higherLevelCotent.text = it.joinToString(separator = "\n      ", prefix = "      ")
+                binding.higherLevelContent.text =
+                    it.joinToString(separator = BREAK_LINE + TAB, prefix = TAB)
                 binding.higherLevel.visibility = View.VISIBLE
-                binding.higherLevelCotent.visibility = View.VISIBLE
+                binding.higherLevelContent.visibility = View.VISIBLE
             }
         }
     }

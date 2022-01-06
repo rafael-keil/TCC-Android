@@ -5,6 +5,7 @@ import android.os.Bundle
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.ActivityCompendiumBinding
 import br.com.cwi.tcc_android.presentation.base.BaseBottomNavigation
+import br.com.cwi.tcc_android.presentation.feature.compendium.equipments.EquipmentHostActivity
 import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellHostActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -27,6 +28,10 @@ class CompendiumActivity : BaseBottomNavigation() {
     private fun setUpCompendiumActions() {
         binding.btSpells.setOnClickListener {
             val intent = Intent(this, SpellHostActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btEquipments.setOnClickListener {
+            val intent = Intent(this, EquipmentHostActivity::class.java)
             startActivity(intent)
         }
     }

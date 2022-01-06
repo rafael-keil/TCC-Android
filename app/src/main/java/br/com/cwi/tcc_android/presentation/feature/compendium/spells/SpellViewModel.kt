@@ -10,13 +10,13 @@ class SpellViewModel(
     private val dndRepository: DndRepository,
 ) : BaseViewModel() {
 
-    private val _classes = MutableLiveData<List<Spell>>()
-    val classes: LiveData<List<Spell>> = _classes
+    private val _spells = MutableLiveData<List<Spell>>()
+    val spells: LiveData<List<Spell>> = _spells
 
     fun fetchSpells() {
         launch {
-            val classesList = dndRepository.getSpells()
-            _classes.postValue(classesList)
+            val spellsList = dndRepository.getSpells()
+            _spells.postValue(spellsList)
         }
     }
 }

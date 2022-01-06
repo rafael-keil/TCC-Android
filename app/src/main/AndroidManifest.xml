@@ -20,6 +20,11 @@
             android:label="@string/txt_spells"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".presentation.feature.compendium.equipments.EquipmentHostActivity"
+            android:exported="false"
+            android:label="@string/txt_equipments"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".presentation.feature.characters.CharactersActivity"
             android:exported="false"
             android:label="@string/txt_characters"

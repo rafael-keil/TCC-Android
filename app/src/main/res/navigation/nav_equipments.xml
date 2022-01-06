@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/equipmentsFragment"
-        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellsList.SpellsFragment"
-        android:label="fragment_spell"
-        tools:layout="@layout/fragment_spells">
+        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.equipments.equipmentsList.EquipmentsFragment"
+        android:label="fragment_equipments"
+        tools:layout="@layout/fragment_equipments">
         <action
-            android:id="@+id/action_spellsFragment_to_spellDetailFragment"
+            android:id="@+id/action_equipmentsFragment_to_equipmentDetailFragment"
             app:destination="@id/equipmentDetailFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/equipmentDetailFragment"
-        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellDetail.SpellDetailFragment"
-        android:label="fragment_spell_detail"
-        tools:layout="@layout/fragment_spell_detail" />
+        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.equipments.equipmentDetail.SpellDetailFragment"
+        android:label="fragment_equipment_detail"
+        tools:layout="@layout/fragment_equipment_detail" />
 
 </navigation>

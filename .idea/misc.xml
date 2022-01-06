@@ -13,15 +13,23 @@
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_classes_host.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_compendium.xml" value="0.33" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_dices.xml" value="0.32395833333333335" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_equipment_host.xml" value="0.33" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_equipments_host.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_main.xml" value="0.16945288753799392" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_spell_host.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/activity_spells_host.xml" value="0.3489583333333333" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/fragment_class.xml" value="0.25" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/fragment_class_detail.xml" value="0.33" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/fragment_equipment_detail.xml" value="0.28804347826086957" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/fragment_equipments.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/fragment_fragment_spells.xml.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/fragment_spell_detail.xml" value="0.33" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/fragment_spells.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/item_class.xml" value="0.3489583333333333" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/item_detail_basic.xml" value="0.33" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/item_equipment.xml" value="0.33" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/item_proficiency.xml" value="0.19202898550724637" />
-        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/item_spell.xml" value="0.5" />
+        <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/item_spell.xml" value="0.33" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/view_bottom_navigation.xml" value="0.5" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/view_error.xml" value="0.33" />
         <entry key="..\:/Users/rafak/OneDrive - Universidade Feevale/CWI/NV3/TCC-Android/app/src/main/res/layout/view_loading.xml" value="0.33" />

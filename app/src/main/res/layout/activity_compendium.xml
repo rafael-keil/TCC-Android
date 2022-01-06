@@ -22,13 +22,13 @@
             android:backgroundTint="@color/base_red"
             android:text="@string/txt_spells"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/bt_equipment"
+            app:layout_constraintBottom_toTopOf="@+id/bt_equipments"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_equipment"
+            android:id="@+id/bt_equipments"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/base_red"
