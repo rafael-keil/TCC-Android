@@ -61,10 +61,10 @@ class SpellDetailFragment : Fragment() {
             binding.tvDesc.text = desc.joinToString(separator = BREAK_LINE + TAB, prefix = TAB)
 
             higherLevel?.let {
-                binding.higherLevelContent.text =
-                    it.joinToString(separator = BREAK_LINE + TAB, prefix = TAB)
                 binding.higherLevel.visibility = View.VISIBLE
                 binding.higherLevelContent.visibility = View.VISIBLE
+                binding.higherLevelContent.text =
+                    it.joinToString(separator = BREAK_LINE + TAB, prefix = TAB)
             }
         }
     }

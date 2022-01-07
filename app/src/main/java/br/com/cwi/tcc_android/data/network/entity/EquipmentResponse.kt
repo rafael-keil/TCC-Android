@@ -16,7 +16,7 @@ class EquipmentResponse(
     @Json(name = "properties") val properties: List<BaseListItemResponse>?,
     //armor
     @Json(name = "armor_category") val armorCategory: String?,
-    @Json(name = "armorClass") val armorClass: ArmorClassResponse?,
+    @Json(name = "armor_class") val armorClass: ArmorClassResponse?,
     @Json(name = "str_minimum") val strMinimum: Int?,
     @Json(name = "stealth_disadvantage") val stealthDisadvantage: Boolean?,
 )

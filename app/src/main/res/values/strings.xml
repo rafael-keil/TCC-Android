@@ -1,4 +1,5 @@
 <resources>
+    <!--general-->
     <string name="app_name">DnD</string>
     <string name="txt_compendium">Compendium</string>
     <string name="txt_characters">Characters</string>
@@ -7,6 +8,8 @@
     <string name="txt_equipments">Equipments</string>
     <string name="txt_error_title">Algo deu errado</string>
     <string name="txt_error_subtitle">tente novamente mais tarde</string>
+
+    <!--spell details-->
     <string name="txt_detail_level">Level:</string>
     <string name="txt_detail_school">School:</string>
     <string name="txt_detail_casting_time">Casting Time:</string>
@@ -15,4 +18,22 @@
     <string name="txt_detail_duration">Duration:</string>
     <string name="txt_detail_classes">Classes:</string>
     <string name="txt_detail_higher_level">Higher Level:</string>
+
+    <!--equipment details-->
+    <string name="txt_detail_equipment_category">Equipment Category:</string>
+    <string name="txt_detail_cost">Cost:</string>
+    <string name="txt_detail_weight">Weight:</string>
+    <string name="txt_detail_weapon_category">Weapon Category:</string>
+    <string name="txt_detail_weapon_range">Weapon Range:</string>
+    <string name="txt_detail_damage">Damage:</string>
+    <string name="txt_detail_properties">Properties:</string>
+    <string name="txt_detail_armor_category">Armor Category:</string>
+    <string name="txt_detail_armor_class">Armor Class:</string>
+    <string name="txt_detail_strength_minimum">Strength Minimum:</string>
+    <string name="txt_detail_stealth_disadvantage">Stealth Disadvantage:</string>
+    <string name="txt_content_cost">%1$d %2$s</string>
+    <string name="txt_content_weight">%1$.2f pounds</string>
+    <string name="txt_content_damage">%1$s - %2$s</string>
+    <string name="txt_content_armor_class">%1$d %2$s</string>
+
 </resources>
