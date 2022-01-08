@@ -40,11 +40,10 @@ class EquipmentHostActivity : BaseBottomNavigation() {
 
     private fun setupNavController() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            val title = when (destination.id) {
+            supportActionBar?.title = when (destination.id) {
                 R.id.equipmentsFragment -> getString(R.string.txt_equipments)
-                else -> "Detalhes"
+                else -> "Details"
             }
-            supportActionBar?.title = title
         }
     }
 

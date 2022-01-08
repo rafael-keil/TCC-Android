@@ -5,19 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentSpellsBinding
+import br.com.cwi.tcc_android.domain.entity.BaseCompendiumItem
 import br.com.cwi.tcc_android.domain.entity.Spell
+import br.com.cwi.tcc_android.presentation.base.BaseSearchFragment
 import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class SpellsFragment : Fragment() {
+class SpellsFragment : BaseSearchFragment() {
 
+    override lateinit var itemList: List<Spell>
     private lateinit var binding: FragmentSpellsBinding
-
     private val viewModel: SpellViewModel by sharedViewModel()
 
     override fun onCreateView(
@@ -25,6 +26,7 @@ class SpellsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSpellsBinding.inflate(layoutInflater)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -36,17 +38,19 @@ class SpellsFragment : Fragment() {
 
     private fun setupViewModel() {
         viewModel.spells.observe(viewLifecycleOwner) { list ->
-            setUpClassesRecyclerView(list)
+            itemList = list
+            setUpClassesRecyclerView(itemList)
         }
         viewModel.fetchSpells()
     }
 
-    private fun setUpClassesRecyclerView(list: List<Spell>) {
+    override fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
+
         binding.rvSpells.apply {
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             )
-            adapter = SpellsAdapter(list, onClassClick = {
+            adapter = SpellsAdapter(filteredList as List<Spell>, onClassClick = {
                 navigateToClassDetail(it.id)
             })
         }

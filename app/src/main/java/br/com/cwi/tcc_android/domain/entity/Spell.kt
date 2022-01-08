@@ -1,8 +1,8 @@
 package br.com.cwi.tcc_android.domain.entity
 
 class Spell(
-    val id: String,
-    val name: String,
+    id: String,
+    name: String,
     val desc: List<String>,
     val higherLevel: List<String>?,
     val range: String,
@@ -13,4 +13,7 @@ class Spell(
     val level: Int,
     val school: BaseListItem,
     val classes: List<BaseListItem>,
+) : BaseCompendiumItem(
+    id = id,
+    name = name
 )

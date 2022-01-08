@@ -1,8 +1,8 @@
 package br.com.cwi.tcc_android.domain.entity
 
 class Equipment(
-    val id: String,
-    val name: String,
+    id: String,
+    name: String,
     val equipmentCategory: BaseListItem,
     val cost: Cost,
     val weight: Double?,
@@ -17,4 +17,7 @@ class Equipment(
     val armorClass: ArmorClass?,
     val strMinimum: Int?,
     val stealthDisadvantage: Boolean?,
+) : BaseCompendiumItem(
+    id = id,
+    name = name
 )
