@@ -11,8 +11,8 @@ class Spell(
     val duration: String,
     val castingTime: String,
     val level: Int,
-    val school: BaseListItem,
-    val classes: List<BaseListItem>,
+    val school: String,
+    val classes: List<String>,
 ) : BaseCompendiumItem(
     id = id,
     name = name

@@ -14,7 +14,7 @@ class EquipmentViewHolder(
 
     fun bind(item: Equipment) {
         tvName.text = item.name
-        tvCategory.text = item.equipmentCategory.name
+        tvCategory.text = item.equipmentCategory
 
         itemView.setOnClickListener {
             onClassClick(item)

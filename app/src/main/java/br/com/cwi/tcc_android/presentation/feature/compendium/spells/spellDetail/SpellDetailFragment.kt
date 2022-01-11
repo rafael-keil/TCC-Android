@@ -52,12 +52,12 @@ class SpellDetailFragment : Fragment() {
         item.run {
             binding.tvName.text = name
             binding.tvLevelContent.text = level.toString()
-            binding.tvSchoolContent.text = school.name
+            binding.tvSchoolContent.text = school
             binding.tvCastingTimeContent.text = castingTime
             binding.tvRangeContent.text = range
             binding.tvComponentsContent.text = components.joinToString(separator = SEPARATOR)
             binding.tvDurationContent.text = duration
-            binding.tvClassesContent.text = classes.joinToString(separator = SEPARATOR) { it.name }
+            binding.tvClassesContent.text = classes.joinToString(separator = SEPARATOR)
             binding.tvDesc.text = desc.joinToString(separator = BREAK_LINE + TAB, prefix = TAB)
 
             higherLevel?.let {

@@ -55,7 +55,7 @@ class SpellDetailFragment : Fragment() {
     private fun setupDetailsInfo(item: Equipment) {
         item.run {
             binding.tvName.text = name
-            binding.tvEquipmentCategoryContent.text = equipmentCategory.name
+            binding.tvEquipmentCategoryContent.text = equipmentCategory
             binding.tvCostContent.text =
                 getString(R.string.txt_content_cost, cost.quantity, cost.unit)
             binding.tvWeightContent.text = getString(R.string.txt_content_weight, weight ?: 0.0)
@@ -72,14 +72,14 @@ class SpellDetailFragment : Fragment() {
                 binding.tvDamageContent.text = getString(
                     R.string.txt_content_damage,
                     damage?.damageDice,
-                    damage?.damageType?.name
+                    damage?.damageType
                 )
                 binding.lvPropertiesContent.adapter =
                     context?.let { context ->
                         ArrayAdapter(
                             context,
                             R.layout.item_detail_basic,
-                            properties.map { it.name }
+                            properties
                         )
                     }
             }

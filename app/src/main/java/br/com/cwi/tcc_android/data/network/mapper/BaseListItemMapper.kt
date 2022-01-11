@@ -1,16 +1,9 @@
 package br.com.cwi.tcc_android.data.network.mapper
 
 import br.com.cwi.tcc_android.data.network.entity.BaseListItemResponse
-import br.com.cwi.tcc_android.domain.entity.BaseListItem
 
-class BaseListItemMapper : DomainMapper<BaseListItemResponse, BaseListItem> {
+fun BaseListItemResponse.toDomain() = name
 
-    override fun toDomain(from: BaseListItemResponse) = BaseListItem(
-        id = from.id,
-        name = from.name,
-    )
-
-    override fun toDomain(from: List<BaseListItemResponse>) = from.map {
-        toDomain(it)
-    }
+fun List<BaseListItemResponse>.toDomain() = this.map {
+    it.toDomain()
 }

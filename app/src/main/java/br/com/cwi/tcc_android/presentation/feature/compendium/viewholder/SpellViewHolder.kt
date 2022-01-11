@@ -15,7 +15,7 @@ class SpellViewHolder(
 
     fun bind(item: Spell) {
         tvName.text = item.name
-        tvSchool.text = item.school.name
+        tvSchool.text = item.school
         tvLevel.text = item.level.toString()
 
         itemView.setOnClickListener {
