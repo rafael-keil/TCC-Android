@@ -2,33 +2,43 @@ package br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellDetai
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentSpellDetailBinding
 import br.com.cwi.tcc_android.domain.entity.Spell
+import br.com.cwi.tcc_android.presentation.base.BaseFavoriteFragment
+import br.com.cwi.tcc_android.presentation.base.ID
+import br.com.cwi.tcc_android.presentation.base.IS_FAVORITE
+import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 private const val TAB = "      "
 private const val BREAK_LINE = "\n"
 private const val SEPARATOR = ", "
 
-class SpellDetailFragment : Fragment() {
+class SpellDetailFragment : BaseFavoriteFragment() {
 
     private lateinit var binding: FragmentSpellDetailBinding
-
+    private val superViewModel: SpellViewModel by sharedViewModel()
     private val viewModel: SpellDetailViewModel by sharedViewModel()
-
+    private lateinit var spell: Spell
 
     private val itemId by lazy {
-        arguments?.getString("id")
+        arguments?.getString(ID)
+    }
+    private val itemIsFavorite by lazy {
+        arguments?.getBoolean(IS_FAVORITE)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSpellDetailBinding.inflate(layoutInflater)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -40,7 +50,9 @@ class SpellDetailFragment : Fragment() {
 
     private fun setupViewModel() {
         viewModel.spellDetail.observe(viewLifecycleOwner) { item ->
-            setupDetailsInfo(item)
+            spell = item
+            spell.isFavorite = itemIsFavorite!!
+            setupDetailsInfo()
         }
 
         itemId?.run {
@@ -48,8 +60,14 @@ class SpellDetailFragment : Fragment() {
         }
     }
 
-    private fun setupDetailsInfo(item: Spell) {
-        item.run {
+    private fun setupDetailsInfo() {
+        spell.run {
+
+            favoriteIcon?.icon = getDrawable(
+                requireContext(),
+                if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite
+            )
+
             binding.tvName.text = name
             binding.tvLevelContent.text = level.toString()
             binding.tvSchoolContent.text = school
@@ -67,5 +85,11 @@ class SpellDetailFragment : Fragment() {
                     it.joinToString(separator = BREAK_LINE + TAB, prefix = TAB)
             }
         }
+    }
+
+    override fun onFavoriteClick() {
+        spell.isFavorite = !spell.isFavorite
+        superViewModel.setFavorite(spell)
+        setupDetailsInfo()
     }
 }

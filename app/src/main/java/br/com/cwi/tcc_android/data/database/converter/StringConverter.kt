@@ -4,8 +4,8 @@ import androidx.room.TypeConverter
 
 class StringConverter : BaseConverter() {
     @TypeConverter
-    fun fromStringList(value: List<String>) = value.joinToString(OBJECT) { it }
+    fun fromStringList(value: List<String>?) = value?.joinToString(OBJECT) { it }
 
     @TypeConverter
-    fun fromString(value: String) = value.split(OBJECT)
+    fun fromString(value: String?) = value?.split(OBJECT)
 }

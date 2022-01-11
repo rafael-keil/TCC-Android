@@ -1,6 +1,7 @@
 package br.com.cwi.tcc_android.domain.repository
 
-import br.com.cwi.tcc_android.domain.entity.*
+import br.com.cwi.tcc_android.domain.entity.Equipment
+import br.com.cwi.tcc_android.domain.entity.Spell
 
 interface DndRepository {
     suspend fun getSpells(): List<Spell>

@@ -12,6 +12,8 @@ import br.com.cwi.tcc_android.databinding.FragmentSpellsBinding
 import br.com.cwi.tcc_android.domain.entity.BaseCompendiumItem
 import br.com.cwi.tcc_android.domain.entity.Spell
 import br.com.cwi.tcc_android.presentation.base.BaseSearchFragment
+import br.com.cwi.tcc_android.presentation.base.ID
+import br.com.cwi.tcc_android.presentation.base.IS_FAVORITE
 import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -47,20 +49,23 @@ class SpellsFragment : BaseSearchFragment() {
     override fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
 
         binding.rvSpells.apply {
-            addItemDecoration(
+            if (itemDecorationCount == 0) addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             )
-            adapter = SpellsAdapter(filteredList as List<Spell>, onClassClick = {
-                navigateToClassDetail(it.id)
+            adapter = SpellsAdapter(filteredList.map { it as Spell }, onClassClick = {
+                navigateToClassDetail(it)
+            }, onFavoriteClick = {
+                viewModel.setFavorite(it)
             })
         }
     }
 
-    private fun navigateToClassDetail(id: String) {
+    private fun navigateToClassDetail(spell: Spell) {
         findNavController().navigate(
             R.id.equipmentDetailFragment,
             bundleOf(
-                Pair("id", id)
+                Pair(ID, spell.id),
+                Pair(IS_FAVORITE, spell.isFavorite)
             )
         )
     }

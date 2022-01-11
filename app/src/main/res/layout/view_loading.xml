@@ -7,6 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:indeterminateTint="@color/base_red"/>
+        android:indeterminateTint="@color/base_red" />
 
 </FrameLayout>

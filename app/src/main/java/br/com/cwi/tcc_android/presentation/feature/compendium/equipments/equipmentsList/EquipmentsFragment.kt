@@ -12,6 +12,8 @@ import br.com.cwi.tcc_android.databinding.FragmentEquipmentsBinding
 import br.com.cwi.tcc_android.domain.entity.BaseCompendiumItem
 import br.com.cwi.tcc_android.domain.entity.Equipment
 import br.com.cwi.tcc_android.presentation.base.BaseSearchFragment
+import br.com.cwi.tcc_android.presentation.base.ID
+import br.com.cwi.tcc_android.presentation.base.IS_FAVORITE
 import br.com.cwi.tcc_android.presentation.feature.compendium.equipments.EquipmentViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -50,17 +52,18 @@ class EquipmentsFragment : BaseSearchFragment() {
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             )
-            adapter = EquipmentsAdapter(filteredList as List<Equipment>, onClassClick = {
-                navigateToClassDetail(it.id)
+            adapter = EquipmentsAdapter(filteredList.map { it as Equipment }, onClassClick = {
+                navigateToClassDetail(it)
             })
         }
     }
 
-    private fun navigateToClassDetail(id: String) {
+    private fun navigateToClassDetail(equipment: Equipment) {
         findNavController().navigate(
             R.id.equipmentDetailFragment,
             bundleOf(
-                Pair("id", id)
+                Pair(ID, equipment.id),
+                Pair(IS_FAVORITE, equipment.isFavorite)
             )
         )
     }

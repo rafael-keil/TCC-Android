@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.domain.entity.BaseCompendiumItem
 
+const val ID = "ID"
+const val IS_FAVORITE = "IS_FAVORITE"
+
 abstract class BaseSearchFragment : Fragment() {
 
     abstract val itemList: List<BaseCompendiumItem>
@@ -23,6 +26,7 @@ abstract class BaseSearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(query: String?): Boolean {
+                filterList(query)
                 return true
             }
         })

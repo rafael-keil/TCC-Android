@@ -17,6 +17,7 @@ class Equipment(
     val armorClass: ArmorClass?,
     val strMinimum: Int?,
     val stealthDisadvantage: Boolean?,
+    var isFavorite: Boolean = false,
 ) : BaseCompendiumItem(
     id = id,
     name = name

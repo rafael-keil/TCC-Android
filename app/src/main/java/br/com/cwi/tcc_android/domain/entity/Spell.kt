@@ -13,6 +13,7 @@ class Spell(
     val level: Int,
     val school: String,
     val classes: List<String>,
+    var isFavorite: Boolean = false
 ) : BaseCompendiumItem(
     id = id,
     name = name

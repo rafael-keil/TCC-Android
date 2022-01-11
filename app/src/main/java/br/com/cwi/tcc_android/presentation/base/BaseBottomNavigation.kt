@@ -3,9 +3,9 @@ package br.com.cwi.tcc_android.presentation.base
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import br.com.cwi.tcc_android.R
-import br.com.cwi.tcc_android.presentation.feature.characters.CharactersActivity
 import br.com.cwi.tcc_android.presentation.feature.compendium.CompendiumActivity
 import br.com.cwi.tcc_android.presentation.feature.dices.DicesActivity
+import br.com.cwi.tcc_android.presentation.feature.favorites.FavoritesActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 abstract class BaseBottomNavigation : AppCompatActivity() {
@@ -35,7 +35,7 @@ abstract class BaseBottomNavigation : AppCompatActivity() {
                 }
 
                 R.id.characters_menu -> {
-                    val intent = Intent(this, CharactersActivity::class.java)
+                    val intent = Intent(this, FavoritesActivity::class.java)
                     startActivity(intent)
                 }
 

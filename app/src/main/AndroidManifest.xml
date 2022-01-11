@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="br.com.cwi.tcc_android">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,32 +14,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TCCAndroid"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:fullBackupContent="">
         <activity
             android:name=".presentation.feature.compendium.spells.SpellHostActivity"
             android:exported="false"
             android:label="@string/txt_spells"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".presentation.feature.compendium.equipments.EquipmentHostActivity"
             android:exported="false"
             android:label="@string/txt_equipments"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".presentation.feature.characters.CharactersActivity"
+            android:name=".presentation.feature.favorites.FavoritesActivity"
             android:exported="false"
             android:label="@string/txt_characters"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".presentation.feature.dices.DicesActivity"
             android:exported="false"
             android:label="@string/txt_dices"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".presentation.feature.compendium.CompendiumActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.TCCAndroid.NoActionBar">
+            android:theme="@style/Theme.TCCAndroid.NoActionBar"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
