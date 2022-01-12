@@ -16,5 +16,5 @@ interface SpellDao {
     fun remove(spellEntity: SpellEntity)
 
     @Query("SELECT * FROM SpellEntity")
-    fun getAll(): List<SpellEntity>?
+    fun getAll(): List<SpellEntity>
 }

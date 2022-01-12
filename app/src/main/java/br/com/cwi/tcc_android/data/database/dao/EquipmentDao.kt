@@ -16,5 +16,5 @@ interface EquipmentDao {
     fun remove(spellEntity: EquipmentEntity)
 
     @Query("SELECT * FROM EquipmentEntity")
-    fun getAll(): List<EquipmentEntity>?
+    fun getAll(): List<EquipmentEntity>
 }

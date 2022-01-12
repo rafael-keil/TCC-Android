@@ -5,10 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import androidx.fragment.app.Fragment
+import androidx.appcompat.content.res.AppCompatResources
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentEquipmentDetailBinding
 import br.com.cwi.tcc_android.domain.entity.Equipment
+import br.com.cwi.tcc_android.presentation.base.BaseFavoriteFragment
+import br.com.cwi.tcc_android.presentation.base.ID
+import br.com.cwi.tcc_android.presentation.base.IS_FAVORITE
+import br.com.cwi.tcc_android.presentation.feature.compendium.equipments.EquipmentViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 private const val TAB = "      "
@@ -17,22 +21,26 @@ private const val BONUS = "+ Dexterity"
 private const val YES = "Yes"
 private const val NO = "No"
 
-class SpellDetailFragment : Fragment() {
+class EquipmentDetailFragment : BaseFavoriteFragment() {
 
     private lateinit var binding: FragmentEquipmentDetailBinding
-
+    private val superViewModel: EquipmentViewModel by sharedViewModel()
     private val viewModel: EquipmentDetailViewModel by sharedViewModel()
-
+    private lateinit var equipment: Equipment
 
     private val itemId by lazy {
-        arguments?.getString("id")
+        arguments?.getString(ID)
+    }
+    private val itemIsFavorite by lazy {
+        arguments?.getBoolean(IS_FAVORITE)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentEquipmentDetailBinding.inflate(layoutInflater)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -44,7 +52,9 @@ class SpellDetailFragment : Fragment() {
 
     private fun setupViewModel() {
         viewModel.equipmentDetail.observe(viewLifecycleOwner) { item ->
-            setupDetailsInfo(item)
+            equipment = item
+            equipment.isFavorite = itemIsFavorite!!
+            setupDetailsInfo()
         }
 
         itemId?.run {
@@ -52,8 +62,13 @@ class SpellDetailFragment : Fragment() {
         }
     }
 
-    private fun setupDetailsInfo(item: Equipment) {
-        item.run {
+    private fun setupDetailsInfo() {
+        equipment.run {
+            favoriteIcon?.icon = AppCompatResources.getDrawable(
+                requireContext(),
+                if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite
+            )
+
             binding.tvName.text = name
             binding.tvEquipmentCategoryContent.text = equipmentCategory
             binding.tvCostContent.text =
@@ -97,5 +112,11 @@ class SpellDetailFragment : Fragment() {
                     if (stealthDisadvantage == true) YES else NO
             }
         }
+    }
+
+    override fun onFavoriteClick() {
+        equipment.isFavorite = !equipment.isFavorite
+        superViewModel.setFavorite(equipment)
+        setupDetailsInfo()
     }
 }

@@ -6,10 +6,10 @@
         android:icon="@drawable/ic_compendium"
         android:title="@string/txt_compendium" />
     <item
-        android:id="@+id/characters_menu"
+        android:id="@+id/favorites_menu"
         android:enabled="true"
-        android:icon="@drawable/ic_characters"
-        android:title="@string/txt_characters" />
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/txt_favorites" />
     <item
         android:id="@+id/dices_menu"
         android:enabled="true"

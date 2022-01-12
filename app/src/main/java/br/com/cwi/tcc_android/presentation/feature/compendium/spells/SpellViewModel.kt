@@ -21,8 +21,7 @@ class SpellViewModel(
         launch {
             val spellsList = dndRepository.getSpells()
             val favoriteList = dndLocalRepository.getAllSpells()
-            _spells.postValue(favoriteList?.let { setIsSpellFavorite(it, spellsList) }
-                ?: spellsList)
+            _spells.postValue(setIsSpellFavorite(favoriteList, spellsList))
         }
     }
 

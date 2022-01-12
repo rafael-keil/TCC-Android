@@ -7,14 +7,15 @@ class ArmorClassConverter : BaseConverter() {
 
     @TypeConverter
     fun fromCost(value: ArmorClassEntity?) =
-        value?.base.toString() + PROPRIETY + value?.dexBonus.toString()
+        value?.let { it.base.toString() + PROPRIETY + it.dexBonus.toString() }
+
 
     @TypeConverter
     fun fromString(value: String?) =
         value?.split(PROPRIETY)?.let {
             ArmorClassEntity(
                 it[0].toInt(),
-                it[0].toBoolean()
+                it[1].toBoolean()
             )
         }
 }

@@ -10,6 +10,7 @@
         android:name="br.com.cwi.tcc_android.presentation.feature.compendium.equipments.equipmentsList.EquipmentsFragment"
         android:label="fragment_equipments"
         tools:layout="@layout/fragment_equipments">
+
         <action
             android:id="@+id/action_equipmentsFragment_to_equipmentDetailFragment"
             app:destination="@id/equipmentDetailFragment" />
@@ -17,7 +18,7 @@
 
     <fragment
         android:id="@+id/equipmentDetailFragment"
-        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.equipments.equipmentDetail.SpellDetailFragment"
+        android:name="br.com.cwi.tcc_android.presentation.feature.compendium.equipments.equipmentDetail.EquipmentDetailFragment"
         android:label="fragment_equipment_detail"
         tools:layout="@layout/fragment_equipment_detail" />
 

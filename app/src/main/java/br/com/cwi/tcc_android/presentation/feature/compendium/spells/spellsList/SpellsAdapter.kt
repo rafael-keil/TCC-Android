@@ -10,13 +10,13 @@ import br.com.cwi.tcc_android.presentation.feature.compendium.viewholder.SpellVi
 
 class SpellsAdapter(
     private val list: List<Spell>,
-    private val onClassClick: (Spell) -> Unit,
+    private val onItemClick: (Spell) -> Unit,
     private val onFavoriteClick: (Spell) -> Unit
 ) : Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = inflateView(R.layout.item_spell, parent)
-        return SpellViewHolder(view, onClassClick, onFavoriteClick)
+        return SpellViewHolder(view, onItemClick, onFavoriteClick)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {

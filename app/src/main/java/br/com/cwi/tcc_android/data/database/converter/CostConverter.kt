@@ -6,7 +6,7 @@ import br.com.cwi.tcc_android.data.database.entity.CostEntity
 class CostConverter : BaseConverter() {
 
     @TypeConverter
-    fun fromCost(value: CostEntity?) = value?.quantity.toString() + PROPRIETY + value?.unit
+    fun fromCost(value: CostEntity?) = value?.let { it.quantity.toString() + PROPRIETY + it.unit }
 
     @TypeConverter
     fun fromString(value: String?) =

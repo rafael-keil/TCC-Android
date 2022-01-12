@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.feature.favorites.FavoritesActivity">
+    tools:context=".presentation.feature.compendium.spells.spellsList.SpellsFragment">
 
-    <include
-        android:id="@+id/content_bottom_navigation"
-        layout="@layout/view_bottom_navigation"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_spell" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import br.com.cwi.tcc_android.domain.entity.Spell
 
 class SpellViewHolder(
     itemView: View,
-    private val onClassClick: (Spell) -> Unit,
+    private val onItemClick: (Spell) -> Unit,
     private val onFavoriteClick: (Spell) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
     private val tvName = ItemSpellBinding.bind(itemView).tvName
@@ -20,7 +20,7 @@ class SpellViewHolder(
     fun bind(item: Spell) {
         tvName.text = item.name
         tvSchool.text = item.school
-        tvLevel.text = item.level.toString()
+        tvLevel.text = itemView.context.getString(R.string.txt_level, item.level)
 
         with(ivFavorite) {
             setImageDrawable(getFavoriteIcon(item))
@@ -32,7 +32,7 @@ class SpellViewHolder(
         }
 
         itemView.setOnClickListener {
-            onClassClick(item)
+            onItemClick(item)
         }
     }
 

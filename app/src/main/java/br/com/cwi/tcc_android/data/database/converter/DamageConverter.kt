@@ -6,7 +6,7 @@ import br.com.cwi.tcc_android.data.database.entity.DamageEntity
 class DamageConverter : BaseConverter() {
 
     @TypeConverter
-    fun fromDamage(value: DamageEntity?) = value?.damageDice + PROPRIETY + value?.damageType
+    fun fromDamage(value: DamageEntity?) = value?.let { it.damageDice + PROPRIETY + it.damageType }
 
     @TypeConverter
     fun fromString(value: String?) =

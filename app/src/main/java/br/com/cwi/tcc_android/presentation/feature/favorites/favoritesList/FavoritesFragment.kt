@@ -1,4 +1,4 @@
-package br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellsList
+package br.com.cwi.tcc_android.presentation.feature.favorites.favoritesList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,26 +8,26 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.cwi.tcc_android.R
-import br.com.cwi.tcc_android.databinding.FragmentSpellsBinding
+import br.com.cwi.tcc_android.databinding.FragmentFavoritesBinding
 import br.com.cwi.tcc_android.domain.entity.BaseCompendiumItem
 import br.com.cwi.tcc_android.domain.entity.Spell
 import br.com.cwi.tcc_android.presentation.base.BaseSearchFragment
 import br.com.cwi.tcc_android.presentation.base.ID
 import br.com.cwi.tcc_android.presentation.base.IS_FAVORITE
-import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellViewModel
+import br.com.cwi.tcc_android.presentation.feature.favorites.FavoriteViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class SpellsFragment : BaseSearchFragment() {
+class FavoritesFragment : BaseSearchFragment() {
 
-    override lateinit var itemList: List<Spell>
-    private lateinit var binding: FragmentSpellsBinding
-    private val viewModel: SpellViewModel by sharedViewModel()
+    override lateinit var itemList: List<BaseCompendiumItem>
+    private lateinit var binding: FragmentFavoritesBinding
+    private val viewModel: FavoriteViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSpellsBinding.inflate(layoutInflater)
+        binding = FragmentFavoritesBinding.inflate(layoutInflater)
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -39,20 +39,20 @@ class SpellsFragment : BaseSearchFragment() {
     }
 
     private fun setupViewModel() {
-        viewModel.spells.observe(viewLifecycleOwner) { list ->
+        viewModel.favorites.observe(viewLifecycleOwner) { list ->
             itemList = list
             setUpClassesRecyclerView(itemList)
         }
-        viewModel.fetchSpells()
+        viewModel.fetchFavorites()
     }
 
     override fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
 
-        binding.rvSpells.apply {
+        binding.rvFavorites.apply {
             if (itemDecorationCount == 0) addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             )
-            adapter = SpellsAdapter(filteredList.map { it as Spell }, onItemClick = {
+            adapter = FavoritesAdapter(filteredList, onItemClick = {
                 navigateToItemDetail(it)
             }, onFavoriteClick = {
                 viewModel.setFavorite(it)
@@ -60,12 +60,12 @@ class SpellsFragment : BaseSearchFragment() {
         }
     }
 
-    private fun navigateToItemDetail(spell: Spell) {
+    private fun navigateToItemDetail(item: BaseCompendiumItem) {
         findNavController().navigate(
-            R.id.spellDetailFragment,
+            if (item is Spell) R.id.spellDetailFragment else R.id.equipmentDetailFragment,
             bundleOf(
-                Pair(ID, spell.id),
-                Pair(IS_FAVORITE, spell.isFavorite)
+                Pair(ID, item.id),
+                Pair(IS_FAVORITE, item.isFavorite)
             )
         )
     }

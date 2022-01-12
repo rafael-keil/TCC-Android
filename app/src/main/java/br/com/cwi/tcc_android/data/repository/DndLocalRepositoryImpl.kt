@@ -20,7 +20,7 @@ class DndLocalRepositoryImpl(
         spellDao.remove(spellEntity)
     }
 
-    override fun getAllSpells(): List<SpellEntity>? = spellDao.getAll()
+    override fun getAllSpells(): List<SpellEntity> = spellDao.getAll()
 
     override fun add(equipmentEntity: EquipmentEntity) {
         equipmentDao.add(equipmentEntity)
@@ -30,5 +30,5 @@ class DndLocalRepositoryImpl(
         equipmentDao.remove(equipmentEntity)
     }
 
-    override fun getAllEquipments(): List<EquipmentEntity>? = equipmentDao.getAll()
+    override fun getAllEquipments(): List<EquipmentEntity> = equipmentDao.getAll()
 }

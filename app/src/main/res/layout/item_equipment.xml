@@ -6,15 +6,27 @@
     android:layout_height="wrap_content"
     android:padding="18dp">
 
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/iv_favorite"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_favorite"
+        android:tint="@color/secondary_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:textColor="@color/base_red"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_category"
+        app:layout_constraintStart_toEndOf="@+id/iv_favorite"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Heavy Plates" />
 

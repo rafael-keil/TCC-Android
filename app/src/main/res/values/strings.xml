@@ -2,7 +2,7 @@
     <!--general-->
     <string name="app_name">DnD</string>
     <string name="txt_compendium">Compendium</string>
-    <string name="txt_characters">Characters</string>
+    <string name="txt_favorites">Favorites</string>
     <string name="txt_dices">Dices</string>
     <string name="txt_spells">Spells</string>
     <string name="txt_equipments">Equipments</string>
@@ -10,6 +10,7 @@
     <string name="txt_error_subtitle">tente novamente mais tarde</string>
 
     <!--spell details-->
+    <string name="txt_level">Level: %1$d</string>
     <string name="txt_detail_level">Level:</string>
     <string name="txt_detail_school">School:</string>
     <string name="txt_detail_casting_time">Casting Time:</string>

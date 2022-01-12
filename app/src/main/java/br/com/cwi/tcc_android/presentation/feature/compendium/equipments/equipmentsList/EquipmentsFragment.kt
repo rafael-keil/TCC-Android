@@ -52,9 +52,11 @@ class EquipmentsFragment : BaseSearchFragment() {
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             )
-            adapter = EquipmentsAdapter(filteredList.map { it as Equipment }, onClassClick = {
+            adapter = EquipmentsAdapter(filteredList.map { it as Equipment }, onItemClick = {
                 navigateToClassDetail(it)
-            })
+            }) {
+                viewModel.setFavorite(it)
+            }
         }
     }
 

@@ -10,12 +10,13 @@ import br.com.cwi.tcc_android.presentation.feature.compendium.viewholder.Equipme
 
 class EquipmentsAdapter(
     private val list: List<Equipment>,
-    private val onClassClick: (Equipment) -> Unit
+    private val onItemClick: (Equipment) -> Unit,
+    private val onFavoriteClick: (Equipment) -> Unit
 ) : Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = inflateView(R.layout.item_equipment, parent)
-        return EquipmentViewHolder(view, onClassClick)
+        return EquipmentViewHolder(view, onItemClick, onFavoriteClick)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
