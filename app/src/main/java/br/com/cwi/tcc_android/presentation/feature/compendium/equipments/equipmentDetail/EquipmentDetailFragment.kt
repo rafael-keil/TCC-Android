@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentEquipmentDetailBinding
@@ -41,6 +42,8 @@ class EquipmentDetailFragment : BaseFavoriteFragment() {
     ): View {
         binding = FragmentEquipmentDetailBinding.inflate(layoutInflater)
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         return binding.root
     }
 

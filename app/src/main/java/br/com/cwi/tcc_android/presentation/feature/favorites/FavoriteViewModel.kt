@@ -23,6 +23,7 @@ class FavoriteViewModel(
             val favoriteEquipmentList = dndLocalRepository.getAllEquipments()
             val favoriteList: List<BaseCompendiumItem> =
                 favoriteSpellList.map { it.toDomain() } + favoriteEquipmentList.map { it.toDomain() }
+            favoriteList.map { it.isFavorite = true }
             _favorites.postValue(favoriteList)
         }
     }
@@ -30,5 +31,7 @@ class FavoriteViewModel(
     fun setFavorite(item: BaseCompendiumItem) {
         if (item is Spell) dndLocalRepository.remove(item.toEntity())
         else dndLocalRepository.remove((item as Equipment).toEntity())
+
+        fetchFavorites()
     }
 }

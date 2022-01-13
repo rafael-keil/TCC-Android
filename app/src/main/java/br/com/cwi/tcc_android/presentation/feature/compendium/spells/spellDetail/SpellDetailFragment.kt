@@ -2,9 +2,9 @@ package br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellDetai
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentSpellDetailBinding
@@ -39,6 +39,7 @@ class SpellDetailFragment : BaseFavoriteFragment() {
     ): View {
         binding = FragmentSpellDetailBinding.inflate(layoutInflater)
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         return binding.root
     }
 
