@@ -20,15 +20,12 @@ abstract class BaseSearchFragment : Fragment() {
         val searchView = menu.findItem(R.id.menu_search).actionView as SearchView
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                filterList(query)
-                return true
-            }
-
             override fun onQueryTextChange(query: String?): Boolean {
                 filterList(query)
                 return true
             }
+
+            override fun onQueryTextSubmit(query: String?) = onQueryTextChange(query)
         })
     }
 

@@ -20,7 +20,9 @@ class ShakeDetector : SensorEventListener {
         fun onShake(count: Int)
     }
 
-    override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
+    override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
+        //ignore
+    }
 
     override fun onSensorChanged(event: SensorEvent) {
 
