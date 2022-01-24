@@ -2,14 +2,12 @@ package br.com.cwi.tcc_android.presentation.feature.compendium.spells
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import br.com.cwi.tcc_android.data.database.entity.SpellEntity
-import br.com.cwi.tcc_android.data.database.mapper.toEntity
 import br.com.cwi.tcc_android.domain.entity.Spell
 import br.com.cwi.tcc_android.domain.repository.DndLocalRepository
 import br.com.cwi.tcc_android.domain.repository.DndRepository
 import br.com.cwi.tcc_android.presentation.base.BaseViewModel
 
-class SpellViewModel(
+open class SpellViewModel(
     private val dndRepository: DndRepository,
     private val dndLocalRepository: DndLocalRepository,
 ) : BaseViewModel() {
@@ -26,7 +24,7 @@ class SpellViewModel(
     }
 
     private fun setIsSpellFavorite(
-        favoriteIdList: List<SpellEntity>,
+        favoriteIdList: List<Spell>,
         spellsList: List<Spell>
     ): List<Spell> {
         favoriteIdList.forEach { favorite ->
@@ -36,8 +34,7 @@ class SpellViewModel(
     }
 
     fun setFavorite(spell: Spell) {
-        val spellEntity = spell.toEntity()
-        if (spell.isFavorite) dndLocalRepository.add(spellEntity)
-        else dndLocalRepository.remove(spellEntity)
+        if (spell.isFavorite) dndLocalRepository.add(spell)
+        else dndLocalRepository.remove(spell)
     }
 }

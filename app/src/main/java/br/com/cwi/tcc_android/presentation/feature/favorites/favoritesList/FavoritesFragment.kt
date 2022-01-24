@@ -20,7 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FavoritesFragment : BaseSearchFragment() {
 
-    override lateinit var itemList: List<BaseCompendiumItem>
+    private lateinit var itemList: List<BaseCompendiumItem>
     private lateinit var binding: FragmentFavoritesBinding
     private val viewModel: FavoriteViewModel by sharedViewModel()
 
@@ -48,7 +48,16 @@ class FavoritesFragment : BaseSearchFragment() {
         viewModel.fetchFavorites()
     }
 
-    override fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
+    override fun filterList(query: String?) {
+        val filteredList = itemList.filter {
+            if (query != null) {
+                it.name.lowercase().contains(query.lowercase())
+            } else true
+        }
+        setUpClassesRecyclerView(filteredList)
+    }
+
+    private fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
 
         binding.rvFavorites.apply {
             if (itemDecorationCount == 0) addItemDecoration(

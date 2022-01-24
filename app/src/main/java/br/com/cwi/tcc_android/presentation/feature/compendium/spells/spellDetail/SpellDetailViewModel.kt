@@ -3,12 +3,14 @@ package br.com.cwi.tcc_android.presentation.feature.compendium.spells.spellDetai
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.cwi.tcc_android.domain.entity.Spell
+import br.com.cwi.tcc_android.domain.repository.DndLocalRepository
 import br.com.cwi.tcc_android.domain.repository.DndRepository
-import br.com.cwi.tcc_android.presentation.base.BaseViewModel
+import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellViewModel
 
 class SpellDetailViewModel(
     private val dndRepository: DndRepository,
-) : BaseViewModel() {
+    dndLocalRepository: DndLocalRepository,
+) : SpellViewModel(dndRepository, dndLocalRepository) {
 
     private val _spellDetail = MutableLiveData<Spell>()
     val spellDetail: LiveData<Spell> = _spellDetail

@@ -37,6 +37,9 @@
     <string name="txt_content_damage">%1$s - %2$s</string>
     <string name="txt_content_armor_class">%1$d %2$s</string>
     <string name="txt_menu_search">menu_search</string>
+    <string name="txt_dexterity">+ Dexterity</string>
+    <string name="txt_yes">Yes</string>
+    <string name="txt_no">No</string>
 
     <!--Dices-->
     <string name="txt_d4">D4</string>

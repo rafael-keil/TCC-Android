@@ -19,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SpellsFragment : BaseSearchFragment() {
 
-    override lateinit var itemList: List<Spell>
+    private lateinit var itemList: List<Spell>
     private lateinit var binding: FragmentSpellsBinding
     private val viewModel: SpellViewModel by sharedViewModel()
 
@@ -46,7 +46,16 @@ class SpellsFragment : BaseSearchFragment() {
         viewModel.fetchSpells()
     }
 
-    override fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
+    override fun filterList(query: String?) {
+        val filteredList = itemList.filter {
+            if (query != null) {
+                it.name.lowercase().contains(query.lowercase())
+            } else true
+        }
+        setUpClassesRecyclerView(filteredList)
+    }
+
+    private fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
 
         binding.rvSpells.apply {
             if (itemDecorationCount == 0) addItemDecoration(

@@ -19,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class EquipmentsFragment : BaseSearchFragment() {
 
-    override lateinit var itemList: List<Equipment>
+    private lateinit var itemList: List<Equipment>
     private lateinit var binding: FragmentEquipmentsBinding
     private val viewModel: EquipmentViewModel by sharedViewModel()
 
@@ -46,7 +46,16 @@ class EquipmentsFragment : BaseSearchFragment() {
         viewModel.fetchEquipments()
     }
 
-    override fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
+    override fun filterList(query: String?) {
+        val filteredList = itemList.filter {
+            if (query != null) {
+                it.name.lowercase().contains(query.lowercase())
+            } else true
+        }
+        setUpClassesRecyclerView(filteredList)
+    }
+
+    private fun setUpClassesRecyclerView(filteredList: List<BaseCompendiumItem>) {
 
         binding.rvEquipments.apply {
             addItemDecoration(

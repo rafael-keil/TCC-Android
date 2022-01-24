@@ -36,3 +36,7 @@ fun Equipment.toEntity() = EquipmentEntity(
     strMinimum,
     stealthDisadvantage,
 )
+
+fun List<EquipmentEntity>.toDomain() = this.map {
+    it.toDomain()
+}

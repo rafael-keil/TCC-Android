@@ -39,7 +39,7 @@ class SpellHostActivity : BaseBottomNavigation() {
     private fun setupNavController() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.title = when (destination.id) {
-                R.id.equipmentsFragment -> getString(R.string.txt_spells)
+                R.id.spellsFragment -> getString(R.string.txt_spells)
                 else -> "Details"
             }
         }

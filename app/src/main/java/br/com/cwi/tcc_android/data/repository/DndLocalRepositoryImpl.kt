@@ -1,8 +1,10 @@
 package br.com.cwi.tcc_android.data.repository
 
 import br.com.cwi.tcc_android.data.database.AppDatabase
-import br.com.cwi.tcc_android.data.database.entity.EquipmentEntity
-import br.com.cwi.tcc_android.data.database.entity.SpellEntity
+import br.com.cwi.tcc_android.data.database.mapper.toDomain
+import br.com.cwi.tcc_android.data.database.mapper.toEntity
+import br.com.cwi.tcc_android.domain.entity.Equipment
+import br.com.cwi.tcc_android.domain.entity.Spell
 import br.com.cwi.tcc_android.domain.repository.DndLocalRepository
 
 class DndLocalRepositoryImpl(
@@ -12,23 +14,23 @@ class DndLocalRepositoryImpl(
     private val spellDao = appDatabase.getSpellDao()
     private val equipmentDao = appDatabase.getEquipmentDao()
 
-    override fun add(spellEntity: SpellEntity) {
-        spellDao.add(spellEntity)
+    override fun add(spell: Spell) {
+        spellDao.add(spell.toEntity())
     }
 
-    override fun remove(spellEntity: SpellEntity) {
-        spellDao.remove(spellEntity)
+    override fun remove(spell: Spell) {
+        spellDao.remove(spell.toEntity())
     }
 
-    override fun getAllSpells(): List<SpellEntity> = spellDao.getAll()
+    override fun getAllSpells(): List<Spell> = spellDao.getAll().toDomain()
 
-    override fun add(equipmentEntity: EquipmentEntity) {
-        equipmentDao.add(equipmentEntity)
+    override fun add(equipment: Equipment) {
+        equipmentDao.add(equipment.toEntity())
     }
 
-    override fun remove(equipmentEntity: EquipmentEntity) {
-        equipmentDao.remove(equipmentEntity)
+    override fun remove(equipment: Equipment) {
+        equipmentDao.remove(equipment.toEntity())
     }
 
-    override fun getAllEquipments(): List<EquipmentEntity> = equipmentDao.getAll()
+    override fun getAllEquipments(): List<Equipment> = equipmentDao.getAll().toDomain()
 }

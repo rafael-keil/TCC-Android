@@ -2,8 +2,6 @@ package br.com.cwi.tcc_android.presentation.feature.favorites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import br.com.cwi.tcc_android.data.database.mapper.toDomain
-import br.com.cwi.tcc_android.data.database.mapper.toEntity
 import br.com.cwi.tcc_android.domain.entity.BaseCompendiumItem
 import br.com.cwi.tcc_android.domain.entity.Equipment
 import br.com.cwi.tcc_android.domain.entity.Spell
@@ -21,16 +19,15 @@ class FavoriteViewModel(
         launch {
             val favoriteSpellList = dndLocalRepository.getAllSpells()
             val favoriteEquipmentList = dndLocalRepository.getAllEquipments()
-            val favoriteList: List<BaseCompendiumItem> =
-                favoriteSpellList.map { it.toDomain() } + favoriteEquipmentList.map { it.toDomain() }
+            val favoriteList: List<BaseCompendiumItem> = favoriteSpellList + favoriteEquipmentList
             favoriteList.map { it.isFavorite = true }
             _favorites.postValue(favoriteList)
         }
     }
 
     fun setFavorite(item: BaseCompendiumItem) {
-        if (item is Spell) dndLocalRepository.remove(item.toEntity())
-        else dndLocalRepository.remove((item as Equipment).toEntity())
+        if (item is Spell) dndLocalRepository.remove(item)
+        else dndLocalRepository.remove((item as Equipment))
 
         fetchFavorites()
     }

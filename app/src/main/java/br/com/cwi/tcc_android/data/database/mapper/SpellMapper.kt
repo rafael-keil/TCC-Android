@@ -32,3 +32,7 @@ fun Spell.toEntity() = SpellEntity(
     school,
     classes,
 )
+
+fun List<SpellEntity>.toDomain() = this.map {
+    it.toDomain()
+}

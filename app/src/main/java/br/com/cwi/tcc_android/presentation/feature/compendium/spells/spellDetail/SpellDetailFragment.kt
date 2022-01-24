@@ -12,7 +12,6 @@ import br.com.cwi.tcc_android.domain.entity.Spell
 import br.com.cwi.tcc_android.presentation.base.BaseFavoriteFragment
 import br.com.cwi.tcc_android.presentation.base.ID
 import br.com.cwi.tcc_android.presentation.base.IS_FAVORITE
-import br.com.cwi.tcc_android.presentation.feature.compendium.spells.SpellViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 private const val TAB = "      "
@@ -22,7 +21,6 @@ private const val SEPARATOR = ", "
 class SpellDetailFragment : BaseFavoriteFragment() {
 
     private lateinit var binding: FragmentSpellDetailBinding
-    private val superViewModel: SpellViewModel by sharedViewModel()
     private val viewModel: SpellDetailViewModel by sharedViewModel()
     private lateinit var spell: Spell
 
@@ -52,7 +50,7 @@ class SpellDetailFragment : BaseFavoriteFragment() {
     private fun setupViewModel() {
         viewModel.spellDetail.observe(viewLifecycleOwner) { item ->
             spell = item
-            spell.isFavorite = itemIsFavorite!!
+            spell.isFavorite = itemIsFavorite == true
             setupDetailsInfo()
         }
 
@@ -63,7 +61,6 @@ class SpellDetailFragment : BaseFavoriteFragment() {
 
     private fun setupDetailsInfo() {
         spell.run {
-
             favoriteIcon?.icon = getDrawable(
                 requireContext(),
                 if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite
@@ -90,7 +87,7 @@ class SpellDetailFragment : BaseFavoriteFragment() {
 
     override fun onFavoriteClick() {
         spell.isFavorite = !spell.isFavorite
-        superViewModel.setFavorite(spell)
+        viewModel.setFavorite(spell)
         setupDetailsInfo()
     }
 }
