@@ -6,18 +6,13 @@ import br.com.cwi.tcc_android.domain.entity.BaseCompendiumItem
 import br.com.cwi.tcc_android.domain.repository.DndLocalRepository
 import br.com.cwi.tcc_android.fixture.EquipmentFixture
 import br.com.cwi.tcc_android.fixture.SpellFixture
-import io.mockk.every
-import io.mockk.justRun
-import io.mockk.mockk
-import io.mockk.verify
+import io.mockk.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.junit.*
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
@@ -30,30 +25,37 @@ class FavoriteViewModelTest {
 
     private lateinit var viewModel: FavoriteViewModel
     private val dndLocalRepository: DndLocalRepository = mockk()
-    private val favoritesObserver: Observer<List<BaseCompendiumItem>> = mockk()
+    private val favoritesObserver = mockk<Observer<List<BaseCompendiumItem>>>(relaxed = true)
     private val dispatcher = TestCoroutineDispatcher()
 
     @Before
     fun setup() {
         Dispatchers.setMain(dispatcher)
-        viewModel = FavoriteViewModel(dndLocalRepository)
-        viewModel.favorites.observeForever(favoritesObserver)
+    }
+
+    @After
+    fun cleanUp() {
+        Dispatchers.resetMain()
+        dispatcher.cleanupTestCoroutines()
     }
 
     @Test
     fun `when view model fetch favorites then return all favorites`() {
+        viewModel = FavoriteViewModel(dndLocalRepository)
+        viewModel.favorites.observeForever(favoritesObserver)
         val spells = SpellFixture.getSpellList()
         val equipments = EquipmentFixture.getEquipmentList()
-        val favorites = spells + equipments
-        favorites.map { it.isFavorite = true }
 
-        every { dndLocalRepository.getAllSpells() } returns spells
-        every { dndLocalRepository.getAllEquipments() } returns equipments
+        coEvery { dndLocalRepository.getAllSpells() } returns spells
+        coEvery { dndLocalRepository.getAllEquipments() } returns equipments
 
         viewModel.fetchFavorites()
 
-        verify { favoritesObserver.onChanged(any()) }
-        Assert.assertTrue(viewModel.favorites.value?.toTypedArray() contentEquals favorites.toTypedArray())
+        val favorites = spells + equipments
+        //favorites.map { it.isFavorite = true }
+
+        coVerify { favoritesObserver.onChanged(favorites) }
+        Assert.assertEquals(viewModel.favorites.value, favorites)
     }
 
     @Test
